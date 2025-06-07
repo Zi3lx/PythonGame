@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Ingredient Module &#8212; Polej mi 1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=5ecbeea2" />
+    <link rel="stylesheet" type="text/css" href="_static/basic.css?v=b08954a9" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=27fed22d" />
+    <script src="_static/documentation_options.js?v=f2a433a1"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="IngredientBottle Module" href="IngredientBottle.html" />
+    <link rel="prev" title="DrinkRecipe Module" href="DrinkRecipe.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="ingredient-module">
+<h1>Ingredient Module<a class="headerlink" href="#ingredient-module" title="Link to this heading">¶</a></h1>
+<p>Moduł <code class="docutils literal notranslate"><span class="pre">Ingredient</span></code> zawiera definicję struktury danych reprezentującej pojedynczy składnik drinka.</p>
+<section id="klasy">
+<h2>Klasy<a class="headerlink" href="#klasy" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="Ingredient">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Ingredient</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alcohol_content</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">price</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">image_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Ingredient" title="Link to this definition">¶</a></dt>
+<dd><p>Reprezentuje składnik używany do tworzenia drinków (np. alkohol, sok, napój gazowany).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>str</em>) – Nazwa składnika (np. “Wódka”).</p></li>
+<li><p><strong>color</strong> (<em>tuple</em><em>[</em><em>int</em><em>, </em><em>int</em><em>, </em><em>int</em><em>]</em>) – Kolor składnika jako krotka RGB (np. (255, 255, 255)).</p></li>
+<li><p><strong>alcohol_content</strong> (<em>float</em>) – Zawartość alkoholu w składniku (np. 40.0 dla 40%).</p></li>
+<li><p><strong>price</strong> (<em>float</em>) – Cena jednostkowa składnika (np. 5.0).</p></li>
+<li><p><strong>image_path</strong> (<em>str</em>) – (Opcjonalnie) Ścieżka do obrazka reprezentującego składnik.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Default<span class="colon">:</span></dt>
+<dd class="field-even"><p>“”</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Ingredient.name">
+<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#Ingredient.name" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">Nazwa</span> <span class="pre">składnika.</span></span></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Ingredient.color">
+<span class="sig-name descname"><span class="pre">color</span></span><a class="headerlink" href="#Ingredient.color" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">Kolor</span> <span class="pre">składnika</span> <span class="pre">w</span> <span class="pre">formacie</span> <span class="pre">RGB.</span></span></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Ingredient.alcohol_content">
+<span class="sig-name descname"><span class="pre">alcohol_content</span></span><a class="headerlink" href="#Ingredient.alcohol_content" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">Zawartość</span> <span class="pre">alkoholu</span> <span class="pre">w</span> <span class="pre">procentach</span> <span class="pre">(0.0–100.0).</span></span></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Ingredient.price">
+<span class="sig-name descname"><span class="pre">price</span></span><a class="headerlink" href="#Ingredient.price" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">Cena</span> <span class="pre">jednostkowa</span> <span class="pre">składnika.</span></span></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Ingredient.image_path">
+<span class="sig-name descname"><span class="pre">image_path</span></span><a class="headerlink" href="#Ingredient.image_path" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">Ścieżka</span> <span class="pre">do</span> <span class="pre">pliku</span> <span class="pre">graficznego</span> <span class="pre">(np.</span> <span class="pre">obrazek</span> <span class="pre">butelki).</span></span></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Polej mi</a></h1>
+
+
+
+
+
+
+
+
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Button.html">Button Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Constants.html">Constants Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DrinkRecipe.html">DrinkRecipe Module</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Ingredient Module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#klasy">Klasy</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="IngredientBottle.html">IngredientBottle Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="main.html">BartenderGame Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Matcher.html">DrinkMatcher Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PlayerName.html">PlayerNameInput Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Shaker.html">Shaker Module</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="DrinkRecipe.html" title="previous chapter">DrinkRecipe Module</a></li>
+      <li>Next: <a href="IngredientBottle.html" title="next chapter">IngredientBottle Module</a></li>
+  </ul></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2025, MS WB BS.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 8.2.3</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
+      
+      |
+      <a href="_sources/Ingredient.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Button Module &#8212; Polej mi 1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=5ecbeea2" />
+    <link rel="stylesheet" type="text/css" href="_static/basic.css?v=b08954a9" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=27fed22d" />
+    <script src="_static/documentation_options.js?v=f2a433a1"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Constants Module" href="Constants.html" />
+    <link rel="prev" title="Polej mi documentation" href="index.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="button-module">
+<h1>Button Module<a class="headerlink" href="#button-module" title="Link to this heading">¶</a></h1>
+<p>Moduł <code class="docutils literal notranslate"><span class="pre">Button</span></code> zawiera klasę <cite>Button</cite>, która reprezentuje prosty przycisk w interfejsie graficznym opartym o Pygame. Przyciski mogą być rysowane na ekranie, reagują na najechanie kursora oraz kliknięcia.</p>
+<p>Import:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">Button</span><span class="w"> </span><span class="kn">import</span> <span class="n">Button</span>
+</pre></div>
+</div>
+<section id="klasy">
+<h2>Klasy<a class="headerlink" href="#klasy" title="Link to this heading">¶</a></h2>
+<section id="button">
+<h3>Button<a class="headerlink" href="#button" title="Link to this heading">¶</a></h3>
+<dl class="py class">
+<dt class="sig sig-object py" id="Button">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Button</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">width</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">height</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">text</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">GRAY</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Button" title="Link to this definition">¶</a></dt>
+<dd><p>Reprezentuje klikany przycisk interfejsu użytkownika w Pygame.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>int</em>) – Pozycja X lewego górnego rogu przycisku.</p></li>
+<li><p><strong>y</strong> (<em>int</em>) – Pozycja Y lewego górnego rogu przycisku.</p></li>
+<li><p><strong>width</strong> (<em>int</em>) – Szerokość przycisku.</p></li>
+<li><p><strong>height</strong> (<em>int</em>) – Wysokość przycisku.</p></li>
+<li><p><strong>text</strong> (<em>str</em>) – Tekst wyświetlany na przycisku.</p></li>
+<li><p><strong>color</strong> (<em>tuple</em>) – Kolor tła przycisku w formacie RGB. Domyślnie <code class="docutils literal notranslate"><span class="pre">GRAY</span></code>.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Button.rect">
+<span class="sig-name descname"><span class="pre">rect</span></span><a class="headerlink" href="#Button.rect" title="Link to this definition">¶</a></dt>
+<dd><p>Obiekt <cite>pygame.Rect</cite> określający pozycję i wymiary przycisku.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Button.text">
+<span class="sig-name descname"><span class="pre">text</span></span><a class="headerlink" href="#Button.text" title="Link to this definition">¶</a></dt>
+<dd><p>Tekst wyświetlany na przycisku.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Button.color">
+<span class="sig-name descname"><span class="pre">color</span></span><a class="headerlink" href="#Button.color" title="Link to this definition">¶</a></dt>
+<dd><p>Kolor przycisku jako krotka RGB.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="Button.is_hovered">
+<span class="sig-name descname"><span class="pre">is_hovered</span></span><a class="headerlink" href="#Button.is_hovered" title="Link to this definition">¶</a></dt>
+<dd><p>Flaga logiczna wskazująca, czy mysz znajduje się nad przyciskiem.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Button.draw">
+<span class="sig-name descname"><span class="pre">draw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">screen</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Button.draw" title="Link to this definition">¶</a></dt>
+<dd><p>Rysuje przycisk na podanej powierzchni.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>screen</strong> (<em>pygame.Surface</em>) – Powierzchnia <cite>pygame.Surface</cite>, na której rysowany jest przycisk.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="Button.handle_event">
+<span class="sig-name descname"><span class="pre">handle_event</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">event</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#Button.handle_event" title="Link to this definition">¶</a></dt>
+<dd><p>Obsługuje zdarzenia myszy (najechanie, kliknięcie).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>event</strong> (<em>pygame.event.Event</em>) – Obiekt zdarzenia <cite>pygame.event.Event</cite>.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><cite>True</cite> jeśli przycisk został kliknięty, inaczej <cite>False</cite>.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Polej mi</a></h1>
+
+
+
+
+
+
+
+
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Button Module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#klasy">Klasy</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Constants.html">Constants Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DrinkRecipe.html">DrinkRecipe Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Ingredient.html">Ingredient Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="IngredientBottle.html">IngredientBottle Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="main.html">BartenderGame Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Matcher.html">DrinkMatcher Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PlayerName.html">PlayerNameInput Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Shaker.html">Shaker Module</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="index.html" title="previous chapter">Polej mi documentation</a></li>
+      <li>Next: <a href="Constants.html" title="next chapter">Constants Module</a></li>
+  </ul></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2025, MS WB BS.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 8.2.3</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
+      
+      |
+      <a href="_sources/Button.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

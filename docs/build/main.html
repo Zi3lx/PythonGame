@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>BartenderGame Module &#8212; Polej mi 1.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=5ecbeea2" />
+    <link rel="stylesheet" type="text/css" href="_static/basic.css?v=b08954a9" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=27fed22d" />
+    <script src="_static/documentation_options.js?v=f2a433a1"></script>
+    <script src="_static/doctools.js?v=9bcbadda"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="DrinkMatcher Module" href="Matcher.html" />
+    <link rel="prev" title="IngredientBottle Module" href="IngredientBottle.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="bartendergame-module">
+<h1>BartenderGame Module<a class="headerlink" href="#bartendergame-module" title="Link to this heading">¶</a></h1>
+<p>Moduł <code class="docutils literal notranslate"><span class="pre">main</span></code> zawiera główną klasę gry “Polej Mi”. Obsługuje wszystkie etapy gry:
+menu, mieszanie drinków, porównywanie ich do przepisów oraz wynik.</p>
+<section id="gamestate">
+<h2>GameState<a class="headerlink" href="#gamestate" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="GameState">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">GameState</span></span><a class="headerlink" href="#GameState" title="Link to this definition">¶</a></dt>
+<dd><p>Wyliczenie reprezentujące stan gry:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">MENU</span></code>: Ekran startowy</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PLAYING</span></code>: Gra w toku</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">RESULT</span></code>: Wyświetlanie wyniku</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PAUSE</span></code>: Pauza (niewykorzystane)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">NAME_INPUT</span></code>: Ekran wprowadzania imienia</p></li>
+</ul>
+</dd></dl>
+
+</section>
+<section id="bartendergame">
+<h2>BartenderGame<a class="headerlink" href="#bartendergame" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="BartenderGame">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">BartenderGame</span></span><a class="headerlink" href="#BartenderGame" title="Link to this definition">¶</a></dt>
+<dd><p>Główna klasa sterująca grą. Obsługuje logikę UI, przetwarzanie zdarzeń, obsługę gracza, nalewanie, mieszanie i ocenianie drinków.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="BartenderGame.__init__">
+<span class="sig-name descname"><span class="pre">__init__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#BartenderGame.__init__" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">Inicjalizuje</span> <span class="pre">wszystkie</span> <span class="pre">elementy</span> <span class="pre">gry,</span> <span class="pre">ładowanie</span> <span class="pre">zasobów,</span> <span class="pre">UI</span> <span class="pre">i</span> <span class="pre">stany.</span></span></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="BartenderGame.run">
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#BartenderGame.run" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">Uruchamia</span> <span class="pre">główną</span> <span class="pre">pętlę</span> <span class="pre">gry.</span></span></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="BartenderGame.handle_events">
+<span class="sig-name descname"><span class="pre">handle_events</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#BartenderGame.handle_events" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">Obsługuje</span> <span class="pre">zdarzenia</span> <span class="pre">Pygame:</span> <span class="pre">kliknięcia,</span> <span class="pre">wpisywanie</span> <span class="pre">imienia,</span> <span class="pre">przejścia</span> <span class="pre">między</span> <span class="pre">ekranami.</span></span></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">Zwraca</span> <span class="pre">False,</span> <span class="pre">jeśli</span> <span class="pre">użytkownik</span> <span class="pre">zamknął</span> <span class="pre">grę.</span></span></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="BartenderGame.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#BartenderGame.update" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">Aktualizuje</span> <span class="pre">stan</span> <span class="pre">gry</span> <span class="pre">i</span> <span class="pre">nalewania.</span></span></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="BartenderGame.draw_menu">
+<span class="sig-name descname"><span class="pre">draw_menu</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#BartenderGame.draw_menu" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">Rysuje</span> <span class="pre">ekran</span> <span class="pre">menu</span> <span class="pre">(powitanie,</span> <span class="pre">opis,</span> <span class="pre">rekordy,</span> <span class="pre">przyciski).</span></span></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="BartenderGame.draw_game">
+<span class="sig-name descname"><span class="pre">draw_game</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#BartenderGame.draw_game" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">Rysuje</span> <span class="pre">ekran</span> <span class="pre">gry:</span> <span class="pre">butelki,</span> <span class="pre">shaker,</span> <span class="pre">przyciski</span> <span class="pre">i</span> <span class="pre">instrukcje.</span></span></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="BartenderGame.draw_result">
+<span class="sig-name descname"><span class="pre">draw_result</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#BartenderGame.draw_result" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">Rysuje</span> <span class="pre">ekran</span> <span class="pre">z</span> <span class="pre">wynikiem</span> <span class="pre">drinka:</span> <span class="pre">podobieństwo,</span> <span class="pre">punkty,</span> <span class="pre">analiza.</span></span></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="BartenderGame.serve_drink">
+<span class="sig-name descname"><span class="pre">serve_drink</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#BartenderGame.serve_drink" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">Porównuje</span> <span class="pre">aktualny</span> <span class="pre">drink</span> <span class="pre">z</span> <span class="pre">przepisami</span> <span class="pre">i</span> <span class="pre">wylicza</span> <span class="pre">wynik.</span></span></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="BartenderGame.save_scores">
+<span class="sig-name descname"><span class="pre">save_scores</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#BartenderGame.save_scores" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">Zapisuje</span> <span class="pre">rekordy</span> <span class="pre">do</span> <span class="pre">pliku</span> <span class="pre">JSON</span> <span class="pre">w</span> <span class="pre">formacie:</span> <span class="pre">``[</span> <span class="pre">{&quot;name&quot;:</span> <span class="pre">...,</span> <span class="pre">&quot;score&quot;:</span> <span class="pre">...,</span> <span class="pre">&quot;drinks&quot;:</span> <span class="pre">...}</span> <span class="pre">]``.</span></span></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="BartenderGame.load_scores">
+<span class="sig-name descname"><span class="pre">load_scores</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#BartenderGame.load_scores" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">Wczytuje</span> <span class="pre">rekordy</span> <span class="pre">z</span> <span class="pre">pliku</span> <span class="pre">JSON.</span> <span class="pre">Obsługuje</span> <span class="pre">zarówno</span> <span class="pre">nowy,</span> <span class="pre">jak</span> <span class="pre">i</span> <span class="pre">stary</span> <span class="pre">format</span> <span class="pre">(same</span> <span class="pre">liczby).</span></span></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BartenderGame.ingredient_bottles">
+<span class="sig-name descname"><span class="pre">ingredient_bottles</span></span><a class="headerlink" href="#BartenderGame.ingredient_bottles" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">Lista</span> <span class="pre">butelek</span> <span class="pre">(obiektów</span> <span class="pre">klasy</span> <span class="pre">IngredientBottle).</span></span></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BartenderGame.ingredient_images">
+<span class="sig-name descname"><span class="pre">ingredient_images</span></span><a class="headerlink" href="#BartenderGame.ingredient_images" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">Mapowanie:</span> <span class="pre">nazwa</span> <span class="pre">-&gt;</span> <span class="pre">obrazek</span> <span class="pre">butelki.</span></span></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BartenderGame.shaker">
+<span class="sig-name descname"><span class="pre">shaker</span></span><a class="headerlink" href="#BartenderGame.shaker" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">Obiekt</span> <span class="pre">shakera</span> <span class="pre">do</span> <span class="pre">mieszania</span> <span class="pre">drinków.</span></span></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BartenderGame.drink_matcher">
+<span class="sig-name descname"><span class="pre">drink_matcher</span></span><a class="headerlink" href="#BartenderGame.drink_matcher" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">Obiekt</span> <span class="pre">dopasowujący</span> <span class="pre">drinki</span> <span class="pre">gracza</span> <span class="pre">do</span> <span class="pre">znanych</span> <span class="pre">przepisów.</span></span></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BartenderGame.high_scores">
+<span class="sig-name descname"><span class="pre">high_scores</span></span><a class="headerlink" href="#BartenderGame.high_scores" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">Lista</span> <span class="pre">najlepszych</span> <span class="pre">wyników</span> <span class="pre">gracza.</span></span></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BartenderGame.player_name">
+<span class="sig-name descname"><span class="pre">player_name</span></span><a class="headerlink" href="#BartenderGame.player_name" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">Imię</span> <span class="pre">wprowadzone</span> <span class="pre">przez</span> <span class="pre">gracza.</span></span></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BartenderGame.score">
+<span class="sig-name descname"><span class="pre">score</span></span><a class="headerlink" href="#BartenderGame.score" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">Aktualna</span> <span class="pre">liczba</span> <span class="pre">punktów</span> <span class="pre">gracza.</span></span></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BartenderGame.last_result">
+<span class="sig-name descname"><span class="pre">last_result</span></span><a class="headerlink" href="#BartenderGame.last_result" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">Wynik</span> <span class="pre">ostatnio</span> <span class="pre">podanego</span> <span class="pre">drinka</span> <span class="pre">(słownik:</span> <span class="pre">match,</span> <span class="pre">similarity,</span> <span class="pre">points</span> <span class="pre">itd.).</span></span></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BartenderGame.state">
+<span class="sig-name descname"><span class="pre">state</span></span><a class="headerlink" href="#BartenderGame.state" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">Aktualny</span> <span class="pre">stan</span> <span class="pre">gry</span> <span class="pre">(typ</span> <span class="pre">GameState).</span></span></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="BartenderGame.name_input">
+<span class="sig-name descname"><span class="pre">name_input</span></span><a class="headerlink" href="#BartenderGame.name_input" title="Link to this definition">¶</a></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">Obiekt</span> <span class="pre">wejścia</span> <span class="pre">tekstowego</span> <span class="pre">dla</span> <span class="pre">imienia</span> <span class="pre">gracza.</span></span></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">shake_button,</span> <span class="pre">serve_button,</span> <span class="pre">clear_button,</span> <span class="pre">menu_button</span></span></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">Przyciski</span> <span class="pre">na</span> <span class="pre">ekranie</span> <span class="pre">gry.</span></span></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">start_button,</span> <span class="pre">quit_button,</span> <span class="pre">confirm_name_button</span></span></dt>
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">Przyciski</span> <span class="pre">na</span> <span class="pre">ekranie</span> <span class="pre">menu.</span></span></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Polej mi</a></h1>
+
+
+
+
+
+
+
+
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="Button.html">Button Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Constants.html">Constants Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="DrinkRecipe.html">DrinkRecipe Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Ingredient.html">Ingredient Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="IngredientBottle.html">IngredientBottle Module</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">BartenderGame Module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#gamestate">GameState</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#bartendergame">BartenderGame</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Matcher.html">DrinkMatcher Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="PlayerName.html">PlayerNameInput Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Shaker.html">Shaker Module</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="IngredientBottle.html" title="previous chapter">IngredientBottle Module</a></li>
+      <li>Next: <a href="Matcher.html" title="next chapter">DrinkMatcher Module</a></li>
+  </ul></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2025, MS WB BS.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 8.2.3</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
+      
+      |
+      <a href="_sources/main.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
